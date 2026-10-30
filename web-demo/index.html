@@ -1,41 +1,36 @@
 <!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Refined Loading · 网页预览（同款 Flutter 组件）</title>
+<title>Refined Loading v2 · 清透玻璃态预览</title>
 <style>
-:root{--bg:#f6f7fb;--card:#fff;--text:#1a1c22;--muted:#6b7280;--acc:#5b6cff}
-body.dark{--bg:#12141a;--card:#1c1f2a;--text:#f2f3f7;--muted:#9aa0ae}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC",sans-serif}
-header{padding:28px 20px 8px;max-width:860px;margin:auto;display:flex;justify-content:space-between;align-items:center}
-h1{font-size:22px;margin:0}p{color:var(--muted);line-height:1.6}
-.grid{max-width:860px;margin:auto;padding:12px 20px 40px;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
-.card{background:var(--card);border-radius:20px;padding:20px;box-shadow:0 8px 28px rgba(0,0,0,.07);min-height:170px}
-.card h3{margin:0 0 4px;font-size:15px}.card small{color:var(--muted)}
-.stage{height:90px;display:flex;align-items:center;justify-content:center}
-button{border:0;background:var(--acc);color:#fff;padding:11px 16px;border-radius:12px;font-size:14px}
-button.ghost{background:transparent;color:var(--acc);border:1px solid var(--acc)}
-/* breathing */ .dots{display:flex;gap:10px}.dots i{width:10px;height:10px;border-radius:50%;background:var(--acc);animation:breathe 1.2s ease-in-out infinite}.dots i:nth-child(2){animation-delay:.2s}.dots i:nth-child(3){animation-delay:.4s}
-@keyframes breathe{0%,100%{transform:scale(.7);opacity:.35}50%{transform:scale(1);opacity:1;box-shadow:0 0 14px rgba(91,108,255,.5)}}
-/* orbit */ .orbit{width:56px;height:56px;position:relative;border:1px solid rgba(91,108,255,.18);border-radius:50%;animation:spin 1.4s linear infinite}.orbit i{position:absolute;width:10px;height:10px;border-radius:50%;background:var(--acc);box-shadow:0 0 10px rgba(91,108,255,.5)}.orbit i:nth-child(1){top:-5px;left:23px}.orbit i:nth-child(2){bottom:6px;left:2px;opacity:.45}.orbit i:nth-child(3){bottom:6px;right:2px;opacity:.45}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC",sans-serif;color:#1a1c22;background:linear-gradient(135deg,#eef2ff,#fdf2f8,#e0f2fe);min-height:100vh}
+body.dark{color:#f2f3f7;background:linear-gradient(135deg,#141828,#2a1e3a,#16283a)}
+header{max-width:880px;margin:auto;padding:28px 20px 8px;display:flex;justify-content:space-between;align-items:center}
+h1{font-size:22px;margin:0}p{color:#6b7280;line-height:1.6}
+.grid{max-width:880px;margin:auto;padding:12px 20px 40px;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
+.card{background:rgba(255,255,255,.55);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.8);border-radius:24px;padding:20px;box-shadow:0 16px 40px rgba(91,108,255,.14);min-height:180px}
+body.dark .card{background:rgba(30,36,51,.55);border-color:rgba(255,255,255,.18)}
+.card h3{margin:0 0 4px;font-size:15px}.card small{color:#6b7280}
+.stage{height:100px;display:flex;align-items:center;justify-content:center}
+button{border:0;background:#5b6cff;color:#fff;padding:11px 16px;border-radius:12px}
+button.ghost{background:transparent;color:#5b6cff;border:1px solid #5b6cff}
+/* aurora */ .aurora{width:150px;height:150px;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;border-radius:50%}
+.aurora i{position:absolute;width:90px;height:90px;border-radius:50%;filter:blur(22px);opacity:.6;animation:drift 6s ease-in-out infinite}
+.aurora i:nth-child(1){background:#5b6cff;left:10px;top:10px}.aurora i:nth-child(2){background:#a855f7;right:10px;top:30px;animation-delay:2s}.aurora i:nth-child(3){background:#22d3ee;left:30px;bottom:10px;animation-delay:4s}
+@keyframes drift{0%,100%{transform:translate(0,0)}50%{transform:translate(12px,-10px)}}
+/* premium ring */ .pring{width:64px;height:64px;border-radius:50%;background:conic-gradient(from 0deg,#a855f7,#5b6cff 60%,rgba(91,108,255,.12) 60%);-webkit-mask:radial-gradient(circle,transparent 58%,#000 59%);mask:radial-gradient(circle,transparent 58%,#000 59%);animation:spin 1.4s linear infinite;position:relative}
 @keyframes spin{to{transform:rotate(360deg)}}
-/* ripple */ .ripple{width:72px;height:72px;position:relative;display:flex;align-items:center;justify-content:center}.ripple:before,.ripple:after{content:"";position:absolute;border:1.5px solid var(--acc);border-radius:50%;animation:rip 1.8s ease-out infinite}.ripple:after{animation-delay:.6s}@keyframes rip{from{width:24px;height:24px;opacity:.6}to{width:72px;height:72px;opacity:0}}.ripple b{width:24px;height:24px;background:var(--acc);border-radius:50%;box-shadow:0 0 16px rgba(91,108,255,.45);z-index:1}
-/* ring */ .ring{width:48px;height:48px;border-radius:50%;border:4px solid rgba(91,108,255,.12);border-top-color:var(--acc);animation:spin 1.2s linear infinite}
-/* wave */ .wave{display:flex;gap:5px;align-items:center}.wave i{width:5px;border-radius:3px;background:var(--acc);animation:wave 1s ease-in-out infinite}.wave i:nth-child(2){animation-delay:.15s}.wave i:nth-child(3){animation-delay:.3s}.wave i:nth-child(4){animation-delay:.45s}.wave i:nth-child(5){animation-delay:.6s}
-@keyframes wave{0%,100%{height:12px;opacity:.5}50%{height:30px;opacity:1}}
-/* blob */ .blob{width:88px;height:88px;background:linear-gradient(135deg,#5b6cff,#a855f7);border-radius:58% 42% 55% 45%/50% 58% 42% 50%;animation:morph 2.6s ease-in-out infinite;display:flex;align-items:center;justify-content:center;color:#fff;font-size:22px}
-@keyframes morph{0%,100%{border-radius:58% 42% 55% 45%/50% 58% 42% 50%}50%{border-radius:45% 55% 42% 58%/58% 45% 55% 42%}}
-/* skeleton */ .sk{width:100%}.sk .row{display:flex;gap:12px;align-items:center}.sk .av{width:44px;height:44px;border-radius:50%;background:#ddd}.sk .l{height:12px;border-radius:6px;background:#ddd;margin:6px 0}.sk .sh{overflow:hidden;position:relative}.sk .sh:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.7),transparent);transform:translateX(-100%);animation:sh 1.6s infinite}@keyframes sh{to{transform:translateX(100%)}}
-#overlay{position:fixed;inset:0;background:rgba(0,0,0,.35);backdrop-filter:blur(6px);display:none;align-items:center;justify-content:center;z-index:9}#overlay .box{background:var(--card);padding:28px;border-radius:20px;text-align:center}
+/* glow dots */ .glow{display:flex;gap:14px}.glow i{width:12px;height:12px;border-radius:50%;background:linear-gradient(135deg,#a855f7,#5b6cff);box-shadow:0 0 16px rgba(91,108,255,.55);animation:glow 1.3s ease-in-out infinite}.glow i:nth-child(2){animation-delay:.2s}.glow i:nth-child(3){animation-delay:.4s}
+@keyframes glow{0%,100%{transform:scale(.7);opacity:.4}50%{transform:scale(1);opacity:1}}
+/* soft progress */ .bar{width:220px;height:4px;background:rgba(91,108,255,.14);border-radius:2px;overflow:hidden;position:relative}.bar i{position:absolute;left:0;top:0;bottom:0;width:62%;background:linear-gradient(90deg,#a855f7,#5b6cff);border-radius:2px;box-shadow:0 0 12px rgba(91,108,255,.6)}
+/* glass skeleton */ .sk{width:100%}.sk .l{height:12px;border-radius:6px;background:rgba(0,0,0,.12);margin:8px 0;overflow:hidden;position:relative}.sk .l:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.8),transparent);transform:translateX(-100%);animation:sh 1.6s infinite}@keyframes sh{to{transform:translateX(100%)}}
 </style></head><body>
-<header><div><h1>Refined Loading · 预览</h1><p>这是网页版同款演示，Flutter 版动效逻辑、节奏、颜色一致。先看质感，满意再推 GitHub。</p></div><button class="ghost" onclick="document.body.classList.toggle('dark')">深浅色</button></header>
+<header><div><h1>Refined Loading v2 · 清透玻璃态</h1><p>网页版同款预览：1px 渐变边框 + 毛玻璃 + 柔焦极光 + 发光圆头。Flutter 版在 <code>flutter_refined_loading</code> 里，网页版只是预览。</p></div><button class="ghost" onclick="document.body.classList.toggle('dark')">深浅色</button></header>
 <div class="grid">
-<div class="card"><h3>BreathingDots · 呼吸三点</h3><small>最常用、最克制</small><div class="stage"><div class="dots"><i></i><i></i><i></i></div></div></div>
-<div class="card"><h3>OrbitDots · 轨道三点</h3><small>正在连接 / 同步</small><div class="stage"><div class="orbit"><i></i><i></i><i></i></div></div></div>
-<div class="card"><h3>RipplePulse · 涟漪</h3><small>等待对方 / 定位</small><div class="stage"><div class="ripple"><b></b></div></div></div>
-<div class="card"><h3>GradientRing · 渐变圆环</h3><small>不定量 / 传进度变定量</small><div class="stage"><div class="ring"></div></div></div>
-<div class="card"><h3>WaveBars · 波形</h3><small>音频 / AI 思考中</small><div class="stage"><div class="wave"><i></i><i></i><i></i><i></i><i></i></div></div></div>
-<div class="card"><h3>MorphBlob · 流动色块</h3><small>AI 生成中</small><div class="stage"><div class="blob">✦</div></div></div>
-<div class="card"><h3>骨架屏 Shimmer</h3><small>内容未到先给结构</small><div class="stage"><div class="sk"><div class="row"><div class="av sh"></div><div style="flex:1"><div class="l sh" style="width:70%"></div><div class="l sh" style="width:45%"></div></div></div></div></div></div>
-<div class="card"><h3>全屏遮罩 + 过渡</h3><small>LoadingOverlay / 页面淡入上滑</small><div class="stage" style="gap:10px"><button onclick="document.getElementById('overlay').style.display='flex'">打开遮罩</button><button class="ghost" onclick="alert('Flutter 里：Navigator.push(context, fadeSlideRoute(DetailPage()))')">过渡用法</button></div></div>
+<div class="card"><h3>AuroraLoader · 极光</h3><small>柔焦色块缓慢流动</small><div class="stage"><div class="aurora"><i></i><i></i><i></i><div class="pring"></div></div></div></div>
+<div class="card"><h3>PremiumRing · 精致圆环</h3><small>双色渐变 + 发光圆头</small><div class="stage"><div class="pring"></div></div></div>
+<div class="card"><h3>GlowDots · 辉光三点</h3><small>渐变圆点 + 光晕</small><div class="stage"><div class="glow"><i></i><i></i><i></i></div></div></div>
+<div class="card"><h3>SoftProgress · 柔光进度条</h3><small>4px 渐变条 + 光点</small><div class="stage"><div class="bar"><i></i></div></div></div>
+<div class="card"><h3>GlassLoader · 玻璃卡片</h3><small>包住任何 loader 都变高级</small><div class="stage"><div style="padding:20px 28px;border-radius:20px;background:rgba(255,255,255,.5);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.9);box-shadow:0 12px 30px rgba(0,0,0,.1);text-align:center"><div class="pring" style="margin:auto"></div><p style="margin:10px 0 0">正在生成…</p></div></div></div>
+<div class="card"><h3>GlassSkeletonCard · 玻璃骨架</h3><small>半透明卡 + 微光</small><div class="stage"><div class="sk"><div class="l" style="width:60%"></div><div class="l"></div><div class="l" style="width:75%"></div></div></div></div>
 </div>
-<div id="overlay"><div class="box"><div class="ring" style="margin:auto"></div><p>正在处理，请稍候…</p><button class="ghost" onclick="document.getElementById('overlay').style.display='none'">取消</button></div></div>
 </body></html>

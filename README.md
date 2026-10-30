@@ -2,6 +2,10 @@
 
 精致、有质感的 Flutter loading / 等待 / 过渡动画组件，零第三方依赖。
 
+## v2 · 清透玻璃态
+
+新增 `GlassLoader`、`AuroraLoader`、`PremiumRing`、`GlowDots`、`SoftProgress`、`GlassSkeletonCard`：1px 渐变边框 + 毛玻璃 + 柔焦极光 + 发光圆头 + 柔和大阴影。v1 组件保留兼容。
+
 ## 结构
 
 - `flutter_refined_loading/` — Flutter package 本体 + 示例 App（`example/`）

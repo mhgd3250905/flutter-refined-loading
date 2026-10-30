@@ -41,6 +41,35 @@ class _DemoAppState extends State<DemoApp> {
           body: ListView(
             padding: const EdgeInsets.all(20),
             children: [
+              const Text(
+                '✦ Premium · 清透玻璃态（v2 新增）',
+                style: TextStyle(fontWeight: FontWeight.w700, fontSize: 16),
+              ),
+              const SizedBox(height: 12),
+              _card('AuroraLoader · 极光',
+                  const AuroraLoader(child: PremiumRing(size: 56))),
+              _card(
+                'GlassLoader · 玻璃卡片',
+                const GlassLoader(
+                  label: '正在生成…',
+                  child: PremiumRing(size: 52),
+                ),
+              ),
+              _card('PremiumRing · 精致圆环（带发光圆头）',
+                  const PremiumRing()),
+              _card('GlowDots · 辉光三点', const GlowDots()),
+              _card('SoftProgress · 柔光进度条',
+                  const SoftProgress(progress: 0.62)),
+              _card('SoftProgress · 不定量',
+                  const SoftProgress(progress: null)),
+              _card('GlassSkeletonCard · 玻璃骨架',
+                  const GlassSkeletonCard()),
+              const SizedBox(height: 20),
+              const Text(
+                '基础版（v1，保留兼容）',
+                style: TextStyle(fontWeight: FontWeight.w700, fontSize: 16),
+              ),
+              const SizedBox(height: 12),
               _card('BreathingDots · 呼吸三点', const BreathingDots()),
               _card('OrbitDots · 轨道三点', const OrbitDots()),
               _card('RipplePulse · 涟漪', const RipplePulse(child: Icon(Icons.mic))),

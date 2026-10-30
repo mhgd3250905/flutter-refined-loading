@@ -2,6 +2,29 @@
 
 精致、有质感的 Flutter loading / 等待 / 过渡动画组件。零第三方依赖，复制一个文件也能用，整包引入更方便。
 
+## v2 · 清透玻璃态（新增）
+
+v1 被反馈“太简单、没质感”后，v2 换了一套质感语言：**1px 渐变边框 + 毛玻璃 + 柔焦极光 + 发光圆头 + 柔和大阴影**，透和光做质感，不堆颜色。
+
+| 组件 | 质感点 |
+|---|---|
+| `GlassLoader` | 包住任何 loader，立刻变玻璃卡片 |
+| `AuroraLoader` | 三个柔焦色块缓慢流动，中间放主 loader |
+| `PremiumRing` | 双色渐变弧 + 弧尾发光圆头 + 内圈柔光 |
+| `GlowDots` | 渐变圆点 + 随呼吸扩大的光晕 |
+| `SoftProgress` | 4px 渐变条 + 尾端光点，定量/不定量都行 |
+| `GlassSkeletonCard` | 半透明卡 + 微光，比纯灰骨架更像真实界面 |
+
+```dart
+GlassLoader(
+  label: '正在生成…',
+  child: const PremiumRing(size: 52),
+);
+
+const AuroraLoader(child: PremiumRing(size: 56));
+const SoftProgress(progress: 0.62);
+```
+
 ## 包含什么（v1）
 
 | 组件 | 适合场景 |

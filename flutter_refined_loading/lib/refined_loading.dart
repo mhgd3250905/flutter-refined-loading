@@ -7,8 +7,14 @@
 /// - [duration] 控制一轮动画时长，越大越舒缓
 library;
 
+export 'src/aurora_loader.dart';
 export 'src/breathing_dots.dart';
+export 'src/glass_loader.dart';
+export 'src/glass_skeleton.dart';
+export 'src/glow_dots.dart';
 export 'src/gradient_ring.dart';
+export 'src/premium_ring.dart';
+export 'src/soft_progress.dart';
 export 'src/loading_button.dart';
 export 'src/loading_overlay.dart';
 export 'src/morph_blob.dart';
