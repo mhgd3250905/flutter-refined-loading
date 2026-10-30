@@ -8,6 +8,11 @@
 library;
 
 export 'src/aurora_loader.dart';
+export 'src/ink_bloom.dart';
+export 'src/lighthouse_fog.dart';
+export 'src/sprout_line.dart';
+export 'src/stardust_assembly.dart';
+export 'src/tide_light.dart';
 export 'src/breathing_dots.dart';
 export 'src/glass_loader.dart';
 export 'src/glass_skeleton.dart';

@@ -42,6 +42,18 @@ class _DemoAppState extends State<DemoApp> {
             padding: const EdgeInsets.all(20),
             children: [
               const Text(
+                '✦ Quiet Light · 安静的光（v3 原创，不是通用 loading）',
+                style: TextStyle(fontWeight: FontWeight.w700, fontSize: 16),
+              ),
+              const SizedBox(height: 12),
+              _card('TideLight · 潮汐光', const TideLight()),
+              _card('InkBloom · 墨晕', const InkBloom()),
+              _card('SproutLine · 一线生机', const SproutLine()),
+              _card('StardustAssembly · 星尘归位',
+                  const StardustAssembly()),
+              _card('LighthouseFog · 雾中灯塔', const LighthouseFog()),
+              const SizedBox(height: 20),
+              const Text(
                 '✦ Premium · 清透玻璃态（v2 新增）',
                 style: TextStyle(fontWeight: FontWeight.w700, fontSize: 16),
               ),

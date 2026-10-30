@@ -2,6 +2,10 @@
 
 精致、有质感的 Flutter loading / 等待 / 过渡动画组件，零第三方依赖。
 
+## v3 · Quiet Light · 安静的光（原创）
+
+新增 `TideLight`、`InkBloom`、`SproutLine`、`StardustAssembly`、`LighthouseFog`：光要安静，动要慢，东西要从无到有、再回到无。v1、v2 通用组件保留。
+
 ## v2 · 清透玻璃态
 
 新增 `GlassLoader`、`AuroraLoader`、`PremiumRing`、`GlowDots`、`SoftProgress`、`GlassSkeletonCard`：1px 渐变边框 + 毛玻璃 + 柔焦极光 + 发光圆头 + 柔和大阴影。v1 组件保留兼容。
