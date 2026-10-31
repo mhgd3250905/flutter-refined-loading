@@ -8,6 +8,10 @@
 library;
 
 export 'src/aurora_loader.dart';
+export 'src/grid_wave.dart';
+export 'src/plotter_shape.dart';
+export 'src/sweep_hand.dart';
+export 'src/tick_ruler.dart';
 export 'src/ink_bloom.dart';
 export 'src/lighthouse_fog.dart';
 export 'src/sprout_line.dart';

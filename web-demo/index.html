@@ -1,30 +1,27 @@
 <!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Quiet Light · 安静的光 — 原创 loading 预览</title>
+<title>Precision · 精密 — 新方向预览</title>
 <style>
-*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC",sans-serif;color:#222;background:#f4f1ea}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC",sans-serif;color:#222;background:#fafafa}
 header{max-width:880px;margin:auto;padding:28px 20px 8px}h1{font-size:22px;margin:0}p{color:#666;line-height:1.7}
 .grid{max-width:880px;margin:auto;padding:12px 20px 40px;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
-.card{background:#fff;border-radius:24px;padding:20px;box-shadow:0 10px 30px rgba(0,0,0,.07);min-height:190px}
+.card{background:#fff;border:1px solid #eee;border-radius:16px;padding:20px;min-height:180px}
 .card h3{margin:0 0 4px}.card small{color:#888}
-.stage{height:110px;display:flex;align-items:center;justify-content:center;overflow:hidden}
-/* tide */ .tide{width:110px;height:110px;border-radius:50%;background:linear-gradient(180deg,#fff,#dbeafe);position:relative;overflow:hidden}.tide:before,.tide:after{content:"";position:absolute;left:-25%;width:150%;height:60%;background:rgba(91,108,255,.35);border-radius:40%;animation:tide 4.2s ease-in-out infinite}.tide:after{background:rgba(91,108,255,.2);animation-delay:2.1s;bottom:5px}.tide:before{bottom:18px}
-@keyframes tide{0%,100%{transform:translateY(6px) rotate(0deg)}50%{transform:translateY(-4px) rotate(8deg)}}
-/* ink */ .ink{width:90px;height:90px;border-radius:50%;background:radial-gradient(circle,#333 8%,transparent 40%);filter:blur(2px);animation:ink 3.4s ease-out infinite}
-@keyframes ink{0%{transform:scale(.2);opacity:.8}70%{transform:scale(1);opacity:.3}100%{transform:scale(1.1);opacity:0}}
-/* sprout */ .sprout{width:4px;height:70px;background:#5b6cff;border-radius:2px;position:relative;transform-origin:bottom;animation:sprout 3s ease-in-out infinite}.sprout:after{content:"";position:absolute;top:0;left:0;width:28px;height:16px;background:#5b6cff;border-radius:0 16px 0 16px;transform:rotate(-20deg);transform-origin:left bottom}
-@keyframes sprout{0%{transform:scaleY(.1)}60%{transform:scaleY(1)}85%{transform:scaleY(1)}100%{transform:scaleY(1);opacity:0}}
-/* stardust */ .stars{position:relative;width:110px;height:110px}.stars i{position:absolute;width:4px;height:4px;border-radius:50%;background:#5b6cff;animation:star 3.8s ease-in-out infinite}.stars i:nth-child(1){left:10px;top:20px}.stars i:nth-child(2){right:15px;top:30px;animation-delay:.3s}.stars i:nth-child(3){left:30px;bottom:15px;animation-delay:.6s}.stars i:nth-child(4){right:30px;bottom:25px;animation-delay:.9s}.stars i:nth-child(5){left:50px;top:10px;animation-delay:1.2s}
-@keyframes star{0%,100%{transform:translate(0,0);opacity:.4}50%{transform:translate(-8px,8px);opacity:1}}
-/* lighthouse */ .light{width:110px;height:110px;border-radius:50%;background:#eef2ff;position:relative;overflow:hidden}.light:after{content:"";position:absolute;left:50%;top:50%;width:110px;height:110px;background:conic-gradient(from 0deg,rgba(91,108,255,.25) 0deg 30deg,transparent 30deg);transform-origin:0 0;animation:spin 8s linear infinite}
+.stage{height:100px;display:flex;align-items:center;justify-content:center}
+/* plotter */ .plot{width:90px;height:90px;border:1.5px solid #222;transform:rotate(45deg);position:relative;animation:plot 2.4s linear infinite}
+@keyframes plot{0%{opacity:.2}50%{opacity:1}90%{opacity:1}100%{opacity:0}}
+/* ticks */ .ticks{display:flex;gap:8px;align-items:flex-end}.ticks i{width:1.5px;background:#222;animation:tick 1.6s linear infinite}.ticks i:nth-child(odd){height:12px}.ticks i:nth-child(even){height:20px}
+@keyframes tick{0%{opacity:.15}50%{opacity:1}100%{opacity:.15}}
+/* sweep */ .sweep{width:90px;height:90px;border:1px solid #ccc;border-radius:50%;position:relative}.sweep:after{content:"";position:absolute;left:50%;top:50%;width:1.5px;height:38px;background:#222;transform-origin:bottom;animation:spin 1.2s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
+/* grid */ .gridw{display:grid;grid-template-columns:repeat(5,10px);gap:12px}.gridw i{width:5px;height:5px;border-radius:50%;background:#222;opacity:.2;animation:gw 1.8s ease-in-out infinite}
+@keyframes gw{0%,100%{opacity:.2}50%{opacity:1}}
 </style></head><body>
-<header><h1>Quiet Light · 安静的光</h1><p>这不是通用 loading 的合集，是我的一套原创作品，审美就一句话：<b>光要安静，动要慢，东西要从无到有、再回到无。</b>下面是网页版近似预览，Flutter 版才是正式实现，在 <code>flutter_refined_loading</code> 里。</p></header>
+<header><h1>Precision · 精密</h1><p>Quiet Light 已下线，换了个完全不同的方向：<b>细线、中性色、匀速、不发光、不弹跳。</b>下面是网页版近似预览，Flutter 版才是正式实现。</p></header>
 <div class="grid">
-<div class="card"><h3>TideLight · 潮汐光</h3><small>两层潮水一前一后涌动，光在水面下</small><div class="stage"><div class="tide"></div></div></div>
-<div class="card"><h3>InkBloom · 墨晕</h3><small>一滴墨落入清水，晕开后留一个干净的圆</small><div class="stage"><div class="ink"></div></div></div>
-<div class="card"><h3>SproutLine · 一线生机</h3><small>只有一根线：长出来，展一片叶，淡出，再长</small><div class="stage"><div class="sprout"></div></div></div>
-<div class="card"><h3>StardustAssembly · 星尘归位</h3><small>散的星尘慢慢聚成一个圆，聚满又轻轻散开</small><div class="stage"><div class="stars"><i></i><i></i><i></i><i></i><i></i></div></div></div>
-<div class="card"><h3>LighthouseFog · 雾中灯塔</h3><small>雾很浓，塔很小，光束一圈要 8 秒</small><div class="stage"><div class="light"></div></div></div>
+<div class="card"><h3>PlotterShape · 绘图仪</h3><small>一支笔沿六边形一笔一笔地画</small><div class="stage"><div class="plot"></div></div></div>
+<div class="card"><h3>TickRuler · 刻度尺</h3><small>一排细刻度从左到右依次亮起</small><div class="stage"><div class="ticks"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div></div>
+<div class="card"><h3>SweepHand · 扫针</h3><small>像手表秒针，一圈 1.2 秒，匀速</small><div class="stage"><div class="sweep"></div></div></div>
+<div class="card"><h3>GridWave · 网格波</h3><small>5×5 点阵，一道波斜着扫过去</small><div class="stage"><div class="gridw"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div></div>
 </div>
 </body></html>

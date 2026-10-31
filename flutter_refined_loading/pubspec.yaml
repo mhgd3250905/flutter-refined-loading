@@ -1,6 +1,6 @@
 name: flutter_refined_loading
 description: 精致、有质感的 Flutter loading / 等待 / 过渡动画组件。零第三方依赖，开箱即用。
-version: 0.3.0
+version: 0.4.0
 homepage: https://github.com/mhgd3250905/flutter-refined-loading
 
 environment:

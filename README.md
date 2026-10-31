@@ -2,6 +2,10 @@
 
 精致、有质感的 Flutter loading / 等待 / 过渡动画组件，零第三方依赖。
 
+## v4 · Precision · 精密（主推）
+
+新增 `PlotterShape`、`TickRuler`、`SweepHand`、`GridWave`：细线、中性色、匀速、不发光。Quiet Light 已从示例下线，文件仍在 git 历史里。
+
 ## v3 · Quiet Light · 安静的光（原创）
 
 新增 `TideLight`、`InkBloom`、`SproutLine`、`StardustAssembly`、`LighthouseFog`：光要安静，动要慢，东西要从无到有、再回到无。v1、v2 通用组件保留。
